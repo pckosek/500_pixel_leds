@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="col-md-3">
+        <p><a id="red" class="btn btn-secondary" href="#" role="button">RED</a></p>
+    </div>
+    <div class="col-md-3">
+        <p><a id="green" class="btn btn-secondary" href="javascript:void(0)" role="button">GREEN</a></p>
+    </div>
+    <div class="col-md-3">
+        <p><a id="blue" class="btn btn-secondary" href="javascript:void(0)" role="button">BLUE</a></p>
+    </div>
+    <div class="col-md-3">
+        <p><a id="redpulse" class="btn btn-secondary" href="javascript:void(0)" role="button">RED PULSE</a></p>
+    </div>
+    <div class="col-md-3">
+        <p><a id="greenpulse" class="btn btn-secondary" href="javascript:void(0)" role="button">GREEN PULSE</a></p>
+    </div>
+    <div class="col-md-3">
+        <p><a id="bluepulse" class="btn btn-secondary" href="javascript:void(0)" role="button">BLUE PULSE</a></p>
+    </div>    
+         
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+    <script>
+    $( document ).ready(function() {
+        $('a').click(function() {
+            console.log(this.id);
+            var url = "https://paullightserver.sites.tjhsst.edu/" + this.id;
+            var ajax_params = {
+                'url'     : url,
+                'type'    : "get",
+                'success' : function(){}
+            }
+            
+            $.ajax( ajax_params )
+    
+        });
+    });
+    </script>    
+    
+  </body>
+</html>
