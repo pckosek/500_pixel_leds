@@ -1,5 +1,19 @@
 #include <stdio.h> 
 #include <stdlib.h> 
+#include <emscripten.h>
+
+
+// EM_JS(void, render, (), {
+// 	strand.pixels.set(strand.wasmPixels);
+// 	ws281x.render(strand.pixels);
+//  	throw 'all done';	
+// });
+
+  
+ EM_JS(void, NoReturnValueWithNoParameters, (), {
+   console.log("NoReturnValueWithNoParameters called");
+ });
+
 
 int x;
 int num_pixels;
@@ -16,19 +30,28 @@ uint32_t * alloc_pixels(int n_pixels)
     return ptr;
 }
 
+
 /* ------------------------------- */
 void assign_pixel(uint32_t * strand, int i, int color) {
 	strand[i] = color;
 }
 
+void assign_strand(uint32_t * strand, int color) {
+	int i;
+	for (i=0; i<=num_pixels; i++) {
+		strand[i] = color;
+	}
+	// render();
+}
+
+int make_scaled_color(int r, int g, int b, float sc) {
+	//return (white << 24) | (red << 16)| (green << 8) | blue;
+	return ( (int)(g*sc) << 16) | ((int)(r*sc) << 8) | (int)(b*sc);
+}
 
 int make_color(int r, int g, int b) {
 	//return (white << 24) | (red << 16)| (green << 8) | blue;
 	return (g << 16) | (r << 8) | b;
-}
-
-
-void plus_one(uint32_t * pixels) {
 }
 
 
@@ -57,6 +80,7 @@ void tick(uint32_t * pixels) {
 
 
 int add(int a, int b) {
+	NoReturnValueWithNoParameters();
 	return a + b;
 }
 

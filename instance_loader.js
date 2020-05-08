@@ -16,7 +16,10 @@ function load(callback) {
       table: new WebAssembly.Table({
         initial: 0,
         element: 'anyfunc'
-      })
+      }),
+      NoReturnValueWithNoParameters : function() {
+        console.log("NoReturnValueWithNoParameters callez");
+      }
     }
 
   WebAssembly.instantiate(typedArray, {

@@ -1,1 +1,1 @@
-emcc add.c -O2 -s "EXPORTED_FUNCTIONS=['_add', '_alloc_pixels', '_plus_one', '_all_off', '_tick', '_assign_pixel', '_make_color']" -s WASM=1 -o add.wasm 
+emcc add.c -O3 -s "EXPORTED_FUNCTIONS=['_add', '_alloc_pixels', '_all_off', '_tick', '_assign_pixel', '_assign_strand', '_make_color', '_make_scaled_color']" -s WASM=1 -o add.wasm 

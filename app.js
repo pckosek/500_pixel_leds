@@ -38,6 +38,7 @@ app.get('/set_pixel', function(req, res){
 
 app.get('/off', function(req, res){
     
+    console.log(strand)
 
     instance.exports.all_off(strand.wasmPixelPtr);
 	strand.pixels.set(strand.wasmPixels);
@@ -62,7 +63,6 @@ var listener = app.listen(app.get('port'), function() {
 // 
 var strand 	 = null;
 var instance = null;
-
 loader.load( function(inst) {
 
 	instance = inst;
@@ -85,5 +85,4 @@ function configure_ws2811() {
     	'wasmPixelPtr' : wasmPixelPtr,
     	'wasmPixels' : wasmPixels
     };
-
 }
