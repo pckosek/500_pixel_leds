@@ -1,3 +1,3 @@
-# 500 Pixel Leds on a Telephone pole
+# Webserver on the raspberry pi
 
-I'm going to make this happen
+This server runs on the pu and allow you to individually access lights

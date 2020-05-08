@@ -17,9 +17,18 @@ uint32_t * alloc_pixels(int n_pixels)
 }
 
 /* ------------------------------- */
+void assign_pixel(uint32_t * strand, int i, int color) {
+	strand[i] = color;
+}
+
+
+int make_color(int r, int g, int b) {
+	//return (white << 24) | (red << 16)| (green << 8) | blue;
+	return (g << 16) | (r << 8) | b;
+}
+
 
 void plus_one(uint32_t * pixels) {
-	pixels[x] = 2;
 }
 
 
