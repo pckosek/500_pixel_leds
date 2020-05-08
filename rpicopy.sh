@@ -1,0 +1,1 @@
+scp $1 ubuntu@192.168.1.200:./work/node/ws
